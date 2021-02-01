@@ -1,0 +1,37 @@
+.joey-btn {
+    position: relative;
+    cursor: pointer;
+    font-weight: normal;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.joey-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.joey-btn:hover {
+    box-shadow: 0px 2px 2px 0px rgba(47, 51, 55, 0.2);
+    opacity: 0.9;
+}
+
+.sm {
+    height: 32px;
+    font-size: 12px;
+}
+
+.md {
+    height: 40px;
+    font-size: 16px;
+}
+
+.lg {
+    height: 48px;
+    font-size: 16px;
+}
