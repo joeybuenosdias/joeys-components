@@ -13,16 +13,31 @@ const StyledHeader = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px 4px;
+  border: ${({ borderColor }) => `1px solid ${borderColor || '#dadcdf'}`};
   border-right: none;
   border-left: none;
+  border-bottom: ${({ borderBottom }) =>
+    borderBottom ? '1px solid #dadcdf' : 'none'};
+  border-top: ${({ borderTop }) => (borderTop ? '1px solid #dadcdf' : 'none')};
   background-color: white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f5f6f7;
+  }
+`
+
+const StyledSvg = styled.svg`
+  transform: ${({ isExpanded }) => isExpanded && 'rotate(180deg)'};
 `
 
 export default function Accordion({
   title,
   children,
-  isExpanded: defaultExpanded
+  isExpanded: defaultExpanded,
+  borderTop,
+  borderBottom
 }) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
   function handleClick() {
@@ -31,26 +46,41 @@ export default function Accordion({
 
   return (
     <div>
-      <StyledHeader onClick={handleClick}>
+      <StyledHeader
+        borderBottom={borderBottom}
+        borderTop={borderTop}
+        onClick={handleClick}
+      >
         {title}
-        <Caret />
+        <StyledSvg
+          height='32px'
+          width='32px'
+          viewBox='0 0 19.399999618530273 11.099998474121094'
+          aria-labelledby='aosi-evil-chevron-up-title'
+          id='si-evil-chevron-up'
+        >
+          <title id='aosi-evil-chevron-up-title'>icon chevron-up</title>
+          <path d='M18 11.1L9.7 2.8l-8.3 8.3L0 9.7 9.7 0l9.7 9.7z' />
+        </StyledSvg>
       </StyledHeader>
       {isExpanded && <div>{children}</div>}
     </div>
   )
 }
 
-function Caret() {
-  return (
-    <svg
-      height='32px'
-      width='32px'
-      viewBox='0 0 19.400001525878906 11.100000381469727'
-      aria-labelledby='alsi-evil-chevron-down-title'
-      id='si-evil-chevron-down'
-    >
-      <title id='alsi-evil-chevron-down-title'>icon chevron-down</title>
-      <path d='M9.7 11.1L0 1.4 1.4 0l8.3 8.3L18 0l1.4 1.4z' />
-    </svg>
-  )
+function Caret({ isExpanded }) {
+  if (isExpanded) {
+    return (
+      <StyledSvg
+        height='32px'
+        width='32px'
+        viewBox='0 0 19.399999618530273 11.099998474121094'
+        aria-labelledby='aosi-evil-chevron-up-title'
+        id='si-evil-chevron-up'
+      >
+        <title id='aosi-evil-chevron-up-title'>icon chevron-up</title>
+        <path d='M18 11.1L9.7 2.8l-8.3 8.3L0 9.7 9.7 0l9.7 9.7z' />
+      </StyledSvg>
+    )
+  }
 }
