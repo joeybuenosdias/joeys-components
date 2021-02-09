@@ -1,4 +1,4 @@
-# joey
+# joeys-components
 
 > Made with create-react-library
 
@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save joey
+npm install --save joeys-components
 ```
 
 ## Usage
@@ -15,8 +15,7 @@ npm install --save joey
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'joey'
-import 'joey/dist/index.css'
+import MyComponent from 'joeys-components'
 
 class Example extends Component {
   render() {
