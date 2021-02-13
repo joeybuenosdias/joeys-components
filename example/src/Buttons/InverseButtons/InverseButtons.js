@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'joey'
+import { Button } from 'joeys-components'
 import css from '../Buttons.module.css'
 
 export default function InverseButtons() {

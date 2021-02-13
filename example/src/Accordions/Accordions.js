@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, Section } from 'joey'
+import { Accordion, Section } from 'joeys-components'
 
 export default function Accordions() {
     return (

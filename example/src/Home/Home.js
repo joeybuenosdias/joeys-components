@@ -1,7 +1,7 @@
 import React from 'react'
 
 /** components */
-import { Section } from 'joey'
+import { Section } from 'joeys-components'
 
 export default function Home() {
     return (

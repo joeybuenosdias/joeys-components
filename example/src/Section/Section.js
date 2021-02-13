@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section } from 'joey'
+import { Section } from 'joeys-components'
 
 export default function Sections() {
     return (

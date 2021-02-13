@@ -6239,7 +6239,7 @@ jest@24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
-"joey@link:..":
+"joeys-components@link:..":
   version "0.0.0"
   uid ""
 

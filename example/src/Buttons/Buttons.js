@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section } from 'joey'
+import { Section } from 'joeys-components'
 import StandardButtons from './StandardButtons/StandardsButtons'
 import InverseButtons from './InverseButtons/InverseButtons';
 // Specificity issues??
