@@ -11,7 +11,7 @@ export default function App() {
     <div className="container">
       <SideBar />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/buttons" component={Buttons} />
         <Route path="/section" component={Section} />
         <Route path="/accordions" component={Accordions} />
