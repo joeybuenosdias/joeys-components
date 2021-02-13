@@ -14,7 +14,7 @@ export default function App() {
         <Route path="/buttons" component={Buttons} />
         <Route path="/section" component={Section} />
         <Route path="/accordions" component={Accordions} />
-        <Route path="/" component={Home} />
+        <Route component={Home} />
       </Switch>
     </div>
   )
