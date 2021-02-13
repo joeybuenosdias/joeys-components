@@ -1,6 +1,7 @@
 import React from 'react'
-import { Switch, Route, NavLink, withRouter } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import './index.css';
+import Home from './Home/Home'
 import Buttons from './Buttons/Buttons'
 import Section from './Section/Section'
 import Accordions from './Accordions/Accordions'
@@ -19,16 +20,12 @@ export default function App() {
   )
 }
 
-function Home() {
-  return (
-    <div>
-      I will be the home page
-    </div>
-  )
-}
-
 function SideBar() {
   const navLinks = [
+    {
+      name: 'home',
+      path: '/'
+    },
     {
       name: 'buttons',
       path: '/buttons'
