@@ -12,9 +12,6 @@ const StyledSection = styled.section`
 const StyledContent = styled.div`
   color: #545658;
   font-family: Helvetica Neue;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: normal;
   line-height: 22px;
   padding: 8px 0;
 `
@@ -22,11 +19,8 @@ const StyledContent = styled.div`
 const StyledHeader = styled.h2`
   color: #2f3337;
   font-family: Helvetica Neue;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: bold;
   line-height: 22px;
-  margin: 0;
+  margin: 0 0 16px 0;
 `
 
 export default function Section({ title, children }) {
