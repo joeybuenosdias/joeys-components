@@ -19,6 +19,30 @@ code {
   padding: 32px;
 }
 
-.my-button {
-  background-color: orange;
+nav {
+  padding: 16px 32px 16px 0;
 }
+
+nav a {
+  padding: 16px 32px;;
+  border: 1px solid #2f3337;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: none;
+  text-decoration: none;
+  background-color: #545658;
+  color: #e7e8ea;
+  font-weight: 700;
+}
+
+nav a:last-child {
+  border-bottom: 1px solid #2f3337;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+
+

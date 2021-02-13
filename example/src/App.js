@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, NavLink, withRouter } from 'react-router-dom';
-// import 'joey/dist/index.css'
+import './index.css';
 import Buttons from './Buttons/Buttons'
 import Section from './Section/Section'
 import Accordions from './Accordions/Accordions'
@@ -46,11 +46,9 @@ function SideBar() {
     <nav>
       {navLinks.map((nav) => {
         return (
-          <div key={nav.name}>
-            <NavLink to={nav.path}>
+            <NavLink key={nav.name} to={nav.path}>
               {nav.name}
             </NavLink>
-          </div>
         );
       })}
     </nav>
