@@ -1,13 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const StyledContainer = styled.div`
-    -webkit-focus-ring-color auto 1px;
-    outline-color: ${({ isExpanded }) =>
-      isExpanded ? '-webkit-focus-ring-color' : ''};
-    outline-style: ${({ isExpanded }) => (isExpanded ? 'auto ' : '')};
-    outline-width: ${({ isExpanded }) => (isExpanded ? '1px ' : '')};
-`
+const StyledContainer = styled.div``
 
 const StyledHeader = styled.button`
   color: #2f3337;
@@ -28,7 +22,7 @@ const StyledHeader = styled.button`
   border-bottom: ${({ borderBottom }) =>
     borderBottom ? '1px solid #dadcdf' : 'none'};
   border-top: ${({ borderTop }) => (borderTop ? '1px solid #dadcdf' : 'none')};
-  background-color: white;
+  background-color: ${({ isExpanded }) => (isExpanded ? '#f9fafb' : 'white')};
 
   &:hover {
     cursor: pointer;
@@ -41,7 +35,10 @@ const StyledSvg = styled.svg`
 `
 
 const StyledContent = styled.div`
-  padding: 16px 8px;
+  padding: 16px;
+  border: ${({ isExpanded }) => (isExpanded ? '1px solid #dadcdf' : '')};
+  border-top: none;
+  border-radius: 4px;
 `
 
 export default function Accordion({
@@ -62,6 +59,7 @@ export default function Accordion({
         borderBottom={borderBottom}
         borderTop={borderTop}
         onClick={handleClick}
+        isExpanded={isExpanded}
       >
         {title}
         <StyledSvg
@@ -76,7 +74,9 @@ export default function Accordion({
           <path d='M18 11.1L9.7 2.8l-8.3 8.3L0 9.7 9.7 0l9.7 9.7z' />
         </StyledSvg>
       </StyledHeader>
-      {isExpanded && <StyledContent>{children}</StyledContent>}
+      {isExpanded && (
+        <StyledContent isExpanded={isExpanded}>{children}</StyledContent>
+      )}
     </StyledContainer>
   )
 }
