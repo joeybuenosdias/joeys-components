@@ -1,19 +1,56 @@
 import React from 'react'
-import 'joey/dist/index.css'
+import { Switch, Route, NavLink, withRouter } from 'react-router-dom';
+import './index.css';
 import Buttons from './Buttons/Buttons'
 import Section from './Section/Section'
 import Accordions from './Accordions/Accordions'
 
-const App = () => {
+export default function App() {
   return (
     <div className="container">
-      <div>
-        <Buttons />
-        <Section />
-        <Accordions />
-      </div>
+      <SideBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/buttons" component={Buttons} />
+        <Route path="/section" component={Section} />
+        <Route path="/accordions" component={Accordions} />
+      </Switch>
     </div>
   )
 }
 
-export default App
+function Home() {
+  return (
+    <div>
+      I will be the home page
+    </div>
+  )
+}
+
+function SideBar() {
+  const navLinks = [
+    {
+      name: 'buttons',
+      path: '/buttons'
+    },
+    {
+      name: 'section',
+      path: '/section'
+    },
+    {
+      name: 'accordions',
+      path: '/accordions'
+    },
+  ]
+  return (
+    <nav>
+      {navLinks.map((nav) => {
+        return (
+            <NavLink key={nav.name} to={nav.path}>
+              {nav.name}
+            </NavLink>
+        );
+      })}
+    </nav>
+  )
+}

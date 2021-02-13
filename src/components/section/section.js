@@ -6,6 +6,7 @@ const StyledSection = styled.section`
   border: 1px solid #dadcdf;
   margin: 16px 0;
   padding: 16px;
+  width: 100%;
 `
 
 const StyledContent = styled.div`
