@@ -5,11 +5,6 @@ const StyledContainer = styled.div``
 
 const StyledHeader = styled.button`
   color: #2f3337;
-  font-family: Helvetica Neue;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 22px;
   margin: 0;
   width: 100%;
   display: flex;
@@ -28,6 +23,13 @@ const StyledHeader = styled.button`
     cursor: pointer;
     background-color: #f5f6f7;
   }
+`
+
+const StyledTitle = styled.h3`
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica Neue;
+  line-height: 22px;
 `
 
 const StyledSvg = styled.svg`
@@ -54,14 +56,16 @@ export default function Accordion({
   }
 
   return (
-    <StyledContainer isExpanded={isExpanded}>
+    <StyledContainer role='region' isExpanded={isExpanded}>
       <StyledHeader
         borderBottom={borderBottom}
         borderTop={borderTop}
         onClick={handleClick}
         isExpanded={isExpanded}
+        aria-expanded={isExpanded}
+        aria-controls={`${title}-accordion`}
       >
-        {title}
+        <StyledTitle>{title}</StyledTitle>
         <StyledSvg
           isExpanded={isExpanded}
           height='32px'
@@ -75,7 +79,12 @@ export default function Accordion({
         </StyledSvg>
       </StyledHeader>
       {isExpanded && (
-        <StyledContent isExpanded={isExpanded}>{children}</StyledContent>
+        <StyledContent
+          aria-labelledby={`${title}-accordion`}
+          isExpanded={isExpanded}
+        >
+          {children}
+        </StyledContent>
       )}
     </StyledContainer>
   )
