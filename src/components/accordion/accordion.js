@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+const StyledContainer = styled.div`
+    -webkit-focus-ring-color auto 1px;
+    outline-color: ${({ isExpanded }) =>
+      isExpanded ? '-webkit-focus-ring-color' : ''};
+    outline-style: ${({ isExpanded }) => (isExpanded ? 'auto ' : '')};
+    outline-width: ${({ isExpanded }) => (isExpanded ? '1px ' : '')};
+`
+
 const StyledHeader = styled.button`
   color: #2f3337;
   font-family: Helvetica Neue;
@@ -29,7 +37,11 @@ const StyledHeader = styled.button`
 `
 
 const StyledSvg = styled.svg`
-  transform: ${({ isExpanded }) => isExpanded && 'rotate(180deg)'};
+  transform: ${({ isExpanded }) => !isExpanded && 'rotate(180deg)'};
+`
+
+const StyledContent = styled.div`
+  padding: 16px 8px;
 `
 
 export default function Accordion({
@@ -45,7 +57,7 @@ export default function Accordion({
   }
 
   return (
-    <div>
+    <StyledContainer isExpanded={isExpanded}>
       <StyledHeader
         borderBottom={borderBottom}
         borderTop={borderTop}
@@ -53,6 +65,7 @@ export default function Accordion({
       >
         {title}
         <StyledSvg
+          isExpanded={isExpanded}
           height='32px'
           width='32px'
           viewBox='0 0 19.399999618530273 11.099998474121094'
@@ -63,24 +76,24 @@ export default function Accordion({
           <path d='M18 11.1L9.7 2.8l-8.3 8.3L0 9.7 9.7 0l9.7 9.7z' />
         </StyledSvg>
       </StyledHeader>
-      {isExpanded && <div>{children}</div>}
-    </div>
+      {isExpanded && <StyledContent>{children}</StyledContent>}
+    </StyledContainer>
   )
 }
 
-function Caret({ isExpanded }) {
-  if (isExpanded) {
-    return (
-      <StyledSvg
-        height='32px'
-        width='32px'
-        viewBox='0 0 19.399999618530273 11.099998474121094'
-        aria-labelledby='aosi-evil-chevron-up-title'
-        id='si-evil-chevron-up'
-      >
-        <title id='aosi-evil-chevron-up-title'>icon chevron-up</title>
-        <path d='M18 11.1L9.7 2.8l-8.3 8.3L0 9.7 9.7 0l9.7 9.7z' />
-      </StyledSvg>
-    )
-  }
-}
+// function Caret({ isExpanded }) {
+//   if (isExpanded) {
+//     return (
+//       <StyledSvg
+//         height='32px'
+//         width='32px'
+//         viewBox='0 0 19.399999618530273 11.099998474121094'
+//         aria-labelledby='aosi-evil-chevron-up-title'
+//         id='si-evil-chevron-up'
+//       >
+//         <title id='aosi-evil-chevron-up-title'>icon chevron-up</title>
+//         <path d='M18 11.1L9.7 2.8l-8.3 8.3L0 9.7 9.7 0l9.7 9.7z' />
+//       </StyledSvg>
+//     )
+//   }
+// }
