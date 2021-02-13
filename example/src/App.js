@@ -24,7 +24,7 @@ function SideBar() {
   const navLinks = [
     {
       name: 'home',
-      path: '/'
+      path: '/joeys-components'
     },
     {
       name: 'buttons',
