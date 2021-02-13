@@ -1,6 +1,6 @@
 {
   "name": "joey-example",
-  "homepage": "https://mojocodeio.github.io/joeys-components",
+  "homepage": ".",
   "version": "0.0.0",
   "private": true,
   "scripts": {
