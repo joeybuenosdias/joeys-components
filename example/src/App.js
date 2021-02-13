@@ -5,6 +5,7 @@ import Home from './Home/Home'
 import Buttons from './Buttons/Buttons'
 import Section from './Section/Section'
 import Accordions from './Accordions/Accordions'
+import Paginations from './Paginations/Paginations'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/buttons" component={Buttons} />
         <Route path="/section" component={Section} />
         <Route path="/accordions" component={Accordions} />
+        <Route path="/paginations" component={Paginations} />
       </Switch>
     </div>
   )
@@ -37,6 +39,10 @@ function SideBar() {
     {
       name: 'accordions',
       path: '/accordions'
+    },
+    {
+      name: 'paginations',
+      path: '/paginations'
     },
   ]
   return (
