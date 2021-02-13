@@ -11,7 +11,7 @@ export default function App() {
     <div className="container">
       <SideBar />
       <Switch>
-        <Route path="/joeys-components" component={Home} />
+        <Route path="/" component={Home} />
         <Route path="/buttons" component={Buttons} />
         <Route path="/section" component={Section} />
         <Route path="/accordions" component={Accordions} />
@@ -24,7 +24,7 @@ function SideBar() {
   const navLinks = [
     {
       name: 'home',
-      path: '/joeys-components'
+      path: '/'
     },
     {
       name: 'buttons',
