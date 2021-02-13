@@ -32,8 +32,11 @@ const StyledButton = styled.button`
   }
 
   &:focus {
+    -webkit-focus-ring-color auto 1px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
     outline-offset: 3px;
-    outline: 2px solid black;
+    outline-width: 1px;
   }
 `
 
