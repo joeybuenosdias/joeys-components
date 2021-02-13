@@ -11,10 +11,10 @@ export default function App() {
     <div className="container">
       <SideBar />
       <Switch>
-        <Route exact path="/" component={Home} />
         <Route path="/buttons" component={Buttons} />
         <Route path="/section" component={Section} />
         <Route path="/accordions" component={Accordions} />
+        <Route path="/" component={Home} />
       </Switch>
     </div>
   )
